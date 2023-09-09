@@ -161,14 +161,13 @@ class TestFileStorage_methods(unittest.TestCase):
         self.assertIn("Review." + rv.id, objs)
 
     def test_reload_no_file(self):
-        print("Current working directory:", os.getcwd())
-        print("Contents of the directory:", os.listdir())
         with self.assertRaises(FileNotFoundError):
             models.storage.reload()
 
-        def test_reload_with_arg(self):
-            with self.assertRaises(TypeError):
-                models.storage.reload(None)
+    def test_reload_with_arg(self):
+        with self.assertRaises(TypeError):
+            models.storage.reload(None)
+
 
 
 if __name__ == "__main__":
