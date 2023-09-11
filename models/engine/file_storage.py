@@ -10,11 +10,7 @@ from models.amenity import Amenity
 from models.review import Review
 
 class FileStorage:
-    """Represent an abstracted storage engine.
-    Attributes:
-        __file_path (str): The name of the file to save objects to.
-        __objects (dict): A dictionary of instantiated objects.
-    """
+    """Represent an abstracted storage engine."""
     __file_path = "file.json"
     __objects = {}
 
@@ -44,4 +40,6 @@ class FileStorage:
                     del o["__class__"]
                     self.new(eval(cls_name)(**o))
         except FileNotFoundError:
-            return
+              raise FileNotFoundError("File not found: {}".format(FileStorage.__file_path))
+
+
