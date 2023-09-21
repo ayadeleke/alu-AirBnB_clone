@@ -1,0 +1,1 @@
+These are all the script for the web static project
